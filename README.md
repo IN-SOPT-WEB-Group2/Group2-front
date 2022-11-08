@@ -72,6 +72,39 @@
 
 ## 4. 파일 디렉토리 구조
 
+- public
+
+  - index.html
+
+- src
+
+  - api - 서버 통신 관련 코드가 들어가는 폴더
+  - components - 여러 페이지에 사용되는 컴포넌트가 들어가는 폴더
+  - hooks - 자주 반복되는 로직을 줄이기 위해 만든 Custom Hook이 들어가는 폴더
+  - pages - 페이지 관련 컴포넌트가 들어가는 폴더
+
+    - Router.jsx - 모든 페이지를 `react-router-dom`으로 관리하는 파일
+
+    ```javascript
+    import React from 'react';
+    import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+    import Home from './Home';
+
+    export default function Router() {
+      return (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </BrowserRouter>
+      );
+    }
+    ```
+
+  - App.jsx
+  - index.js
+
 ## 5. 더 논의하면 좋을 것 같은 사항들
 
 ### 1. 상태 관리 라이브러리

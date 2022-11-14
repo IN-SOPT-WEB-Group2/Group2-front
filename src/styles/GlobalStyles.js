@@ -3,6 +3,13 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
+    :root {
+        --color-red: #ED1A3B;
+        --color-black: '#131112';
+        --color-background: '#41414D';
+        --color-navy: '#1D2235';
+        --color-white: '#FFFFFF';
+    }
     * {
         box-sizing: border-box;
     }
@@ -14,12 +21,6 @@ const GlobalStyles = createGlobalStyle`
     }
     input:focus {
         outline: 0;
-    }
-    :root {
-        --color-red: #ED1A3B;
-        --color-black: '#131112';
-        --color-background: '#41414D';
-        --color-navy: '#1D2235';
     }
 `;
 

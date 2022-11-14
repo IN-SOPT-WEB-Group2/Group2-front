@@ -10,15 +10,16 @@ const GlobalStyles = createGlobalStyle`
         --color-navy: #1D2235;
         --color-white: #FFFFFF;
     }
+
     * {
         box-sizing: border-box;
-    }
-    body {
         font-family: 'Pretendard';
     }
+
     a {
         text-decoration: none;
     }
+    
     input:focus {
         outline: 0;
     }

@@ -6,6 +6,7 @@ import CalenderNav from '../components/Schedule/CalenderNav';
 import DateInfo from '../components/Schedule/DateInfo';
 import Calendar from '../components/Schedule/Calendar';
 import HallInfo from '../components/Schedule/HallInfo';
+import WarningText from '../components/Schedule/WarningText';
 
 export default function Schedule() {
   return (
@@ -14,6 +15,7 @@ export default function Schedule() {
       <CalenderNav />
       <DateInfo />
       <Calendar />
+      <WarningText />
       <HallInfo />
     </Container>
   );

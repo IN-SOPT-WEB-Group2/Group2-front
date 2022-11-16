@@ -14,7 +14,7 @@ export default function Footer() {
         </FooterList>
       </FooterNav>
       <FooterArticle>
-        <MainIconGray margin-top="28px" />
+        <MainIconGray margin-top="1.75rem" />
         <FooterBox>
           <p>
             {'('}우{')'} 06757 서울시 서초구 남부순환로 2406 예술의 전당
@@ -40,7 +40,6 @@ const MainFooter = styled.footer`
   * {
     font-family: 'Pretendard';
     font-style: normal;
-
     font-size: 10px;
     line-height: 143.52%;
   }

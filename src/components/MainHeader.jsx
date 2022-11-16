@@ -15,7 +15,7 @@ export default function MainHeader({ title, main }) {
   );
 }
 
-const MainHeaderBox = styled.article`
+const MainHeaderBox = styled.header`
   background-color: #41414d;
   width: calc(100% + 36px);
   margin: 0 18px 0 -18px;

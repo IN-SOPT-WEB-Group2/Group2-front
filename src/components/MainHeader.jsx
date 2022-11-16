@@ -17,14 +17,15 @@ export default function MainHeader({ title, main }) {
 
 const MainHeaderBox = styled.article`
   background-color: #41414d;
-  width: 100%;
+  width: calc(100% + 36px);
+  margin: 0 18px 0 -18px;
   display: flex;
   justify-content: space-between;
   height: 64px;
 `;
 
 const HeaderTitle = styled.h1`
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 19px;
   font-weight: 600;
   line-height: 64px;

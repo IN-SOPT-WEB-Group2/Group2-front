@@ -28,6 +28,7 @@ const StyledItemWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 20px;
   width: 335px;
   height: calc(18px + 22px);
   border-bottom: 1px solid #e2e2e2;

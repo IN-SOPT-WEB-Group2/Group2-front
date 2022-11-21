@@ -42,6 +42,7 @@ export default function PerformanceInfo() {
 
 const StyledContainer = styled.div`
   margin-top: 52px;
+  padding: 0 20px;
 `;
 
 const StyledTitle = styled.strong`

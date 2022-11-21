@@ -5,31 +5,32 @@ import DropDown from '../../assets/logos/icon_arrow_down.svg';
 
 export default function PerformanceDetail() {
   const onClickViewMore = () => {
-    height === '691px' ? setHeight('100%') : setHeight('691px');
+    if (height === '691px') {
+      setHeight('100%');
+      setText('설명 접기');
+    } else {
+      setHeight('691px');
+      setText('설명 더보기');
+    }
   };
 
   const [height, setHeight] = useState('691px');
+  const [text, setText] = useState('설명 더보기');
 
   return (
     <StyledContainer>
-      <StyledWrap>
-        <StyledTitle>공지 사항</StyledTitle>
-        <StyledContent>
-          예술의 전당 유료회원(골드/블루/그린) : 20% 할인
-          <br />
-          예술의 전당 일반회원(싹틔우미, 노블) : 10% 할인
-        </StyledContent>
-      </StyledWrap>
-      <StyledWrap>
-        <StyledTitle>작품 설명</StyledTitle>
-        <StyledContent>
-          <StyledImageWrap src={DetailImage} alt="작품상세정보 이미지" height={height} />
-          <StyledViewMoreBtn onClick={onClickViewMore}>
-            <span>설명 더보기</span>
-            <StyledViewMoreIcon src={DropDown} alt="더보기" />
-          </StyledViewMoreBtn>
-        </StyledContent>
-      </StyledWrap>
+      <StyledTitle>공지 사항</StyledTitle>
+      <StyledContent>
+        예술의 전당 유료회원(골드/블루/그린) : 20% 할인
+        <br />
+        예술의 전당 일반회원(싹틔우미, 노블) : 10% 할인
+      </StyledContent>
+      <StyledTitle>작품 설명</StyledTitle>
+      <StyledImageWrap src={DetailImage} alt="작품상세정보 이미지" height={height} />
+      <StyledViewMoreBtn onClick={onClickViewMore}>
+        <span>{text}</span>
+        <StyledViewMoreIcon src={DropDown} alt="더보기" />
+      </StyledViewMoreBtn>
       <StyledWrap>
         <StyledTitle>작가 소개</StyledTitle>
         <StyledContent>
@@ -58,18 +59,22 @@ const StyledTitle = styled.div`
   font-size: 15px;
   font-weight: 600;
   line-height: 135%;
+  margin-top: 25px;
+  padding: 0 20px;
   color: #232323;
 `;
 const StyledContent = styled.div`
   font-size: 15px;
   line-height: 140%;
   margin-top: 8px;
+  padding: 0 20px;
   color: #000000;
 `;
 
 const StyledImageWrap = styled.img`
-  width: 375px;
-  height: ${(height) => height}
+  width: 100%;
+  height: ${(height) => height};
+  margin-top: 14px;
   object-fit: cover;
   object-position: left top;
 `;
@@ -78,7 +83,7 @@ const StyledViewMoreBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 375px;
+  width: 100%;
   height: 55px;
   font-size: 15px;
   line-height: 17.9px;

@@ -6,10 +6,10 @@ export default function WarningText() {
 }
 
 const WarnTxt = styled.p`
-  font-size: 11px;
+  font-size: 0.6875rem;
   line-height: 143.52%;
-  color: #949494;
+  color: ${({ theme }) => theme.colors.gray2};
   text-align: right;
   font-weight: 300;
-  margin: 8px 0 18px;
+  margin: 0.5rem 0 1.125rem;
 `;

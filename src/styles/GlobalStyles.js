@@ -3,6 +3,14 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
+    @font-face {
+        font-family: Pretendard;
+        src: url('../fonts/Pretendard-Regular.woff');
+    }
+    body {
+        font-family: 'Pretendard';
+        font-size: 62.5%;
+    }
     :root {
         --color-red: #ED1A3B;
         --color-black: #131112;
@@ -10,7 +18,6 @@ const GlobalStyles = createGlobalStyle`
         --color-navy: #1D2235;
         --color-white: #FFFFFF;
     }
-
     * {
         box-sizing: border-box;
         font-family: 'Pretendard';

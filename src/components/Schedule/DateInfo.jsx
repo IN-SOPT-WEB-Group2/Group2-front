@@ -22,13 +22,13 @@ export default function DateInfo() {
 const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 234px;
-  margin: 16px auto 8px;
+  width: 14.625rem;
+  margin: 1rem auto 0.5rem;
 `;
 
 const InfoTitle = styled.h2`
   font-weight: 600;
-  font-size: 19px;
-  line-height: 23px;
-  padding: 12.5px 0;
+  font-size: 1.1875rem;
+  line-height: 1.4375rem;
+  padding: 0.7813rem 0;
 `;

@@ -16,17 +16,17 @@ export default function MainHeader({ title, main }) {
 }
 
 const MainHeaderBox = styled.header`
-  background-color: #41414d;
-  width: calc(100% + 36px);
-  margin: 0 18px 0 -18px;
+  background-color: ${({ theme }) => theme.colors.background};
+  width: calc(100% + 2.25rem);
+  margin: 0 1.125rem 0 -1.125rem;
   display: flex;
   justify-content: space-between;
-  height: 64px;
+  height: 4rem;
 `;
 
 const HeaderTitle = styled.h1`
-  color: var(--color-white);
-  font-size: 19px;
+  color: ${({ theme }) => theme.colors.white};
+  font-size: 1.1875rem;
   font-weight: 600;
-  line-height: 64px;
+  line-height: 4rem;
 `;

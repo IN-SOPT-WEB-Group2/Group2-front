@@ -70,14 +70,14 @@ export default function Calendar() {
 
 const CalendarWrapper = styled.div`
   width: 100%;
-  border-radius: 5px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  background-color: var(--color-white);
-  height: 327px;
-  font-size: 13px;
+  border-radius: 0.3125rem;
+  box-shadow: 0px 0px 1.25rem rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => theme.colors.white};
+  height: 20.4375rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   text-align: right;
-  padding: 7px 11px;
+  padding: 0.4375rem 0.6875rem;
 `;
 
 const CalendarContainer = styled.table`
@@ -85,22 +85,22 @@ const CalendarContainer = styled.table`
   height: 100%;
   thead {
     width: 100%;
-    padding: 7px 11px 4px 12px;
-    color: #131112;
+    padding: 0.4375rem 0.6875rem 0.25rem 0.75rem;
+    color: ${({ theme }) => theme.colors.black};
   }
 
   tbody {
-    color: #949494;
-    padding: 0 10px 7px 11px;
+    color: ${({ theme }) => theme.colors.gray2};
+    padding: 0 0.625rem 0.4375rem 0.6875rem;
   }
 
   tr:not(:last-child) {
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.gray3};
   }
 
   td {
-    padding: 1px 3px;
-    width: 57px;
+    padding: 0.0625rem 0.1875rem;
+    width: 3.5625rem;
   }
 
   td:not(.monday) {
@@ -108,31 +108,31 @@ const CalendarContainer = styled.table`
   }
 
   .day-title {
-    border-bottom: 1px solid #41414d;
-    padding-bottom: 4px;
+    border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.background};
+    padding-bottom: 0.25rem;
     margin: 0 auto;
   }
 
   .day-title th {
-    width: 42px;
+    width: 2.625rem;
     text-align: center;
     line-height: 135%;
-    padding: 4px 0;
+    padding: 0.25rem 0;
   }
 
   .mon {
-    color: #949494;
+    color: ${({ theme }) => theme.colors.gray2};
   }
 
   .sat {
-    color: #287eff;
+    color: ${({ theme }) => theme.colors.blue};
   }
 
   .sun {
-    color: #ed1a3b;
+    color: ${({ theme }) => theme.colors.red};
   }
 
   .monday {
-    background-color: #f2f2f2;
+    background-color: ${({ theme }) => theme.colors.gray4};
   }
 `;

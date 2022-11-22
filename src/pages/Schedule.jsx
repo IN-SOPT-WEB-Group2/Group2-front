@@ -5,8 +5,9 @@ import MainHeader from '../components/MainHeader';
 import CalenderNav from '../components/Schedule/CalenderNav';
 import DateInfo from '../components/Schedule/DateInfo';
 import Calendar from '../components/Schedule/Calendar';
-import HallInfo from '../components/Schedule/HallInfo';
 import WarningText from '../components/Schedule/WarningText';
+import HallInfo from '../components/Schedule/HallInfo';
+import Detail from '../components/Schedule/Detail';
 
 export default function Schedule() {
   return (
@@ -17,6 +18,7 @@ export default function Schedule() {
       <Calendar />
       <WarningText />
       <HallInfo />
+      <Detail />
     </Container>
   );
 }

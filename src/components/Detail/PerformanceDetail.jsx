@@ -1,21 +1,25 @@
 import { React, useState } from 'react';
 import styled from 'styled-components';
-import DetailImage from '../../assets/logos/image_detail.svg';
 import DropDown from '../../assets/logos/icon_arrow_down.svg';
+import Upward from '../../assets/logos/icon_arrow_upward.svg';
+import DetailImage from '../../assets/logos/Image_Detail.png';
 
 export default function PerformanceDetail() {
   const onClickViewMore = () => {
     if (height === '691px') {
       setHeight('100%');
       setText('설명 접기');
+      setIcon(Upward);
     } else {
       setHeight('691px');
       setText('설명 더보기');
+      setIcon(DropDown);
     }
   };
 
   const [height, setHeight] = useState('691px');
   const [text, setText] = useState('설명 더보기');
+  const [icon, setIcon] = useState(DropDown);
 
   return (
     <StyledContainer>
@@ -29,7 +33,7 @@ export default function PerformanceDetail() {
       <StyledImageWrap src={DetailImage} alt="작품상세정보 이미지" height={height} />
       <StyledViewMoreBtn onClick={onClickViewMore}>
         <span>{text}</span>
-        <StyledViewMoreIcon src={DropDown} alt="더보기" />
+        <StyledViewMoreIcon src={icon} alt="더보기" />
       </StyledViewMoreBtn>
       <StyledWrap>
         <StyledTitle>작가 소개</StyledTitle>

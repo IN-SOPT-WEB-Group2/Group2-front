@@ -35,13 +35,13 @@ export default function CalenderNav() {
 }
 
 const NavBox = styled.ul`
-  border: 1px solid #e2e2e2;
-  border-radius: 21px;
-  font-size: 15px;
+  border: 0.0625rem solid ${({ theme }) => theme.colors.gray3};
+  border-radius: 1.3125rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   width: 100%;
   display: flex;
-  margin-top: 28px;
+  margin-top: 1.75rem;
 `;
 
 const NavElement = styled.li`
@@ -49,14 +49,14 @@ const NavElement = styled.li`
   white-space: nowrap;
   line-height: 135%;
   width: calc(100% / 3);
-  border-radius: 21px;
-  padding: 9px 0;
+  border-radius: 1.3125rem;
+  padding: 0.5625rem 0;
   cursor: pointer;
-  background-color: var(--color-white);
-  color: #949494;
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.gray2};
   &.active {
-    background-color: var(--color-red);
-    color: var(--color-white);
+    background-color: ${({ theme }) => theme.colors.red};
+    color: ${({ theme }) => theme.colors.white};
     transition: all 0.5s;
   }
 `;

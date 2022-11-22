@@ -11,7 +11,7 @@ import Detail from '../components/Schedule/Detail';
 
 export default function Schedule() {
   return (
-    <Container main={false}>
+    <Container main={false} isFull={false}>
       <MainHeader title="전체 일정" main={false} />
       <CalenderNav />
       <DateInfo />

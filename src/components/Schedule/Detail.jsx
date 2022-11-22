@@ -31,40 +31,40 @@ export default function Detail() {
 }
 
 const DetailContainer = styled.section`
-  padding: 37px 0 24px;
+  padding: 2.3125rem 0 1.5rem;
 `;
 
 const DetailTitle = styled.article`
   display: flex;
   justify-content: space-between;
-  height: 34px;
-  margin-bottom: 15px;
+  height: 2.125rem;
+  margin-bottom: 0.9375rem;
 `;
 
 const DateContainer = styled.article`
   display: flex;
-  gap: 5px;
-  font-size: 17px;
+  gap: 0.3125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
-  line-height: 20px;
-  margin-top: 2px;
+  line-height: 1.25rem;
+  margin-top: 0.125rem;
   text-align: center;
   color: #232323;
 `;
 
 const Title = styled.p`
-  line-height: 30px;
+  line-height: 1.875rem;
 `;
 
 const ButtonContainer = styled.article`
   display: flex;
-  gap: 12px;
-  margin-top: -6px;
+  gap: 0.75rem;
+  margin-top: -0.375rem;
 `;
 
 const Date = styled.article`
-  border: 1px solid #e2e2e2;
-  border-radius: 33px;
-  background: #f2f2f2;
-  padding: 3px 13px 3px 14px;
+  border: 0.0625rem solid ${({ theme }) => theme.colors.gray3};
+  border-radius: 2.0625rem;
+  background: ${({ theme }) => theme.colors.gray4};
+  padding: 0.1875rem 0.8125rem 0.1875rem 0.875rem;
 `;

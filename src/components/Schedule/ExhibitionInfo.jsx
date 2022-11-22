@@ -15,10 +15,10 @@ export default function ExhibitionInfo() {
 }
 
 const Container = styled.article`
-  padding: 12px 0;
-  border-bottom: 1px solid #e2e2e2;
+  padding: 0.75rem 0;
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.gray3};
   display: flex;
-  gap: 14px;
+  gap: 0.875rem;
 `;
 
 const Image = styled.img``;
@@ -27,7 +27,7 @@ const InfoContainer = styled.section``;
 
 const InfoTitle = styled.h3`
   font-weight: 600;
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 135%;
-  color: #131112;
+  color: ${({ theme }) => theme.colors.black};
 `;

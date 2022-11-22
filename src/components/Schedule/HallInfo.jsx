@@ -5,15 +5,15 @@ export default function HallInfo() {
   return (
     <Container>
       <Hall>
-        <HallColor color="#5873FF" />
+        <HallColor color={({ theme }) => theme.colors.calendar_blue} />
         <HallName>인춘아트홀</HallName>
       </Hall>
       <Hall>
-        <HallColor color="#B658FF" />
+        <HallColor color={({ theme }) => theme.colors.calendar_purple} />
         <HallName>IBK챔버홀</HallName>
       </Hall>
       <Hall>
-        <HallColor color="#ACBBE2" />
+        <HallColor color={({ theme }) => theme.colors.calendar_gray} />
         <HallName>콘서트홀</HallName>
       </Hall>
     </Container>
@@ -21,27 +21,27 @@ export default function HallInfo() {
 }
 
 const Container = styled.section`
-  border-bottom: 1px solid #e2e2e2;
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.gray3};
   width: 100%;
-  padding-bottom: 15px;
+  padding-bottom: 0.9375rem;
   display: flex;
-  gap: 15px;
+  gap: 0.9375rem;
 `;
 
 const Hall = styled.article`
   display: flex;
-  gap: 5px;
+  gap: 0.3125rem;
 `;
 
 const HallColor = styled.div`
-  border-radius: 3px;
-  width: 16px;
-  height: 16px;
+  border-radius: 0.1875rem;
+  width: 1rem;
+  height: 1rem;
   background-color: ${(props) => props.color};
 `;
 
 const HallName = styled.span`
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 500;
-  line-height: 15px;
+  line-height: 0.9375rem;
 `;

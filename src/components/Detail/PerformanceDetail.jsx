@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import styled from 'styled-components';
 import DropDown from '../../assets/logos/icon_arrow_down.svg';
-import Upward from '../../assets/logos/icon_arrow_upward.svg';
+import Upward from '../../assets/logos/icon_arrow_upward.svg';
 import DetailImage from '../../assets/logos/Image_Detail.png';
 
 export default function PerformanceDetail() {

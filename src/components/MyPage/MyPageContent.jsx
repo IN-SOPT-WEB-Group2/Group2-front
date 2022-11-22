@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ProfileCard from './ProfileCard';
 import MenuList from './MenuList';
 import Line from './Line';
+import CategoryNav from './CategoryNav';
 
 export default function MyPageContent() {
   const setAccount = ['개인 정보 수정', '유료 멤버십 갱신/가입', '후원회 관리'];
@@ -11,6 +12,7 @@ export default function MyPageContent() {
   return (
     <StlyedContainer>
       <ProfileCard />
+      <CategoryNav/>
       <Line width="335px" margin="22px 0" />
       <MenuList menuTitle="계정 설정" menuItems={setAccount} />
       <Line width="335px" margin="22px 0" />

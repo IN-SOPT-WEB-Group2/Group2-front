@@ -5,12 +5,12 @@ export default function Carousel() {
   const [current, setCurrent] = useState(0);
   const postersInfo = [
     {
-      posterSrc: `/posters/1.전재성_포스터.png`,
-      title: '전재성 연주회',
-      date: '2022.01.02',
+      posterSrc: `/posters/2.차이코프스키_포스터.jpg`,
+      title: '차이코프스크키 전시회',
+      date: '2022.01.02 ~ 2022.01.06',
     },
     {
-      posterSrc: `/posters/2.차이코프스키_포스터.jpg`,
+      posterSrc: `/posters/1.전재성_포스터.png`,
       title: '전재성 연주회',
       date: '2022.01.02',
     },
@@ -73,8 +73,9 @@ const CardLayout = ({ posterSrc, title, date }) => {
   );
 };
 const SliderLayout = styled.article`
-  height: 22.625rem;
+  height: 21.625rem;
   width: 100%;
+  margin-top: 1rem;
 `;
 const MainSliderLayout = styled.article`
   width: 23.4375rem;

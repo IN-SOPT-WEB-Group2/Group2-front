@@ -1,0 +1,23 @@
+<svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="34" cy="38" r="24" fill="#E2E2E2"/>
+<path d="M54 44H25.0891H14V35.7884C14 28.2423 20.1173 22.125 27.6634 22.125H29.5156C31.008 22.125 32.2178 20.9152 32.2178 19.4228C32.2178 13.6664 36.8843 9 42.6406 9H43.1089C49.1239 9 54 13.8761 54 19.8911V44Z" fill="#41414D" stroke="#E2E2E2"/>
+<rect x="14" y="44" width="40" height="14" fill="#41414D" stroke="#E2E2E2"/>
+<path d="M18 44V58" stroke="#E2E2E2"/>
+<path d="M22 44V58" stroke="#E2E2E2"/>
+<path d="M26 44V58" stroke="#E2E2E2"/>
+<path d="M30 44V58" stroke="#E2E2E2"/>
+<path d="M34 44V58" stroke="#E2E2E2"/>
+<path d="M38 44V58" stroke="#E2E2E2"/>
+<path d="M42 44V58" stroke="#E2E2E2"/>
+<path d="M46 44V58" stroke="#E2E2E2"/>
+<path d="M50 44V58" stroke="#E2E2E2"/>
+<rect x="21" y="44" width="2" height="8" fill="#E2E2E2"/>
+<rect x="25" y="44" width="2" height="8" fill="#E2E2E2"/>
+<rect x="33" y="44" width="2" height="8" fill="#E2E2E2"/>
+<rect x="37" y="44" width="2" height="8" fill="#E2E2E2"/>
+<rect x="41" y="44" width="2" height="8" fill="#E2E2E2"/>
+<rect x="49" y="44" width="2" height="8" fill="#E2E2E2"/>
+<rect x="14.5" y="12" width="9" height="6" rx="1.5" fill="#41414D" stroke="#E2E2E2" stroke-linejoin="bevel"/>
+<path d="M23.5 15V2L30 8L32 6" stroke="#E2E2E2" stroke-linejoin="bevel"/>
+<path d="M23.5 14.5V5.5L30 11.5L32 9.5" stroke="#E2E2E2" stroke-linejoin="bevel"/>
+</svg>

@@ -1,39 +1,56 @@
 import { React, useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import ShareIcon from '../../assets/logos/icon_share.svg';
 import EmptyLikeIcon from '../../assets/logos/icon_like_empty.svg';
 import FillLikeIcon from '../../assets/logos/icon_like_fill.svg';
+import CompleteImage from '../../assets/logos/예매 완료.svg';
 
 export default function Reserve() {
   const [like, setLike] = useState(false);
   const [image, setImage] = useState(EmptyLikeIcon);
   const [reservation, setReservation] = useState(false);
   const [bgColor, setBgColor] = useState('#ED1A3B');
+  const [hidden, setHidden] = useState(true);
 
   const onClickLike = () => {
     like ? setImage(EmptyLikeIcon) : setImage(FillLikeIcon);
     setLike((prev) => !prev);
   };
 
-  const onClickReserve = (e) => {
+  const onClickReserve = async (e) => {
     reservation ? setBgColor('#ED1A3B') : setBgColor('#41414d');
     reservation ? (e.target.innerHTML = '예매하기') : (e.target.innerHTML = '취소하기');
+
+    if (!reservation) {
+      await setHidden((prev)=> !prev);
+      // await setTimeout(() => {
+      //   setHidden((prev) => !prev);
+      // }, 500);
+
+      setTimeout(() => {
+        setHidden((prev) => !prev);
+      }, 3000);
+    }
+
     setReservation((prev) => !prev);
   };
 
   return (
-    <StyledContainer>
-      <StyledWrap>
-        <StyledReserveBtn onClick={onClickReserve} bgColor={bgColor}>
-          예매하기
-        </StyledReserveBtn>
-        <StyledIconWrap>
-          <StyledIcon src={ShareIcon} alt="공유 아이콘" />
-          <StyledIcon src={image} alt="좋아요 아이콘" onClick={onClickLike} />
-        </StyledIconWrap>
-      </StyledWrap>
-    </StyledContainer>
+    <>
+      <StyledContainer>
+        <StyledWrap>
+          <StyledReserveBtn onClick={onClickReserve} bgColor={bgColor}>
+            예매하기
+          </StyledReserveBtn>
+          <StyledIconWrap>
+            <StyledIcon src={ShareIcon} alt="공유 아이콘" />
+            <StyledIcon src={image} alt="좋아요 아이콘" onClick={onClickLike} />
+          </StyledIconWrap>
+        </StyledWrap>
+      </StyledContainer>
+      <StyledCompleteImage src={CompleteImage} alt="예매완료" hidden={hidden} fadein={fadein} />
+    </>
   );
 }
 
@@ -77,4 +94,20 @@ const StyledIcon = styled.img`
 `;
 const StyledIconWrap = styled.div`
   margin-left: 12.84px;
+`;
+
+const StyledCompleteImage = styled.img`
+  position: fixed;
+  bottom: 59px;
+  z-index: 99;
+  animation: ${(props) => props.fadein} 0.5s;
+`;
+
+const fadein = keyframes`
+  from{
+    opacity:0;
+  }
+  to{
+    opacity: 1;
+  }
 `;

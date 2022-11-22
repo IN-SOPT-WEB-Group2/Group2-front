@@ -13,15 +13,15 @@ export default function CategoryNav() {
         <StyledFont>티켓 예매 기록</StyledFont>
       </StyledWrap>
       <StyledWrap>
-        <img src={LikeList} alt="티켓 예매 기록" />
+        <img src={LikeList} alt="찜 목록" />
         <StyledFont>찜 목록</StyledFont>
       </StyledWrap>
       <StyledWrap>
-        <img src={ClassLog} alt="티켓 예매 기록" />
+        <img src={ClassLog} alt="강좌 신청 기록" />
         <StyledFont>강좌 신청 기록</StyledFont>
       </StyledWrap>
       <StyledWrap>
-        <img src={Membership} alt="티켓 예매 기록" />
+        <img src={Membership} alt="나의 멤버십" />
         <StyledFont>나의 멤버십</StyledFont>
       </StyledWrap>
     </StyledContainer>

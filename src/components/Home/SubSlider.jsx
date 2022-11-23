@@ -7,7 +7,6 @@ import { ReactComponent as NoticeIcon } from '../../assets/logos/icon_공지사�
 import { ReactComponent as MediaIcon } from '../../assets/logos/icon_미디어.svg';
 import { ReactComponent as LocationIcon } from '../../assets/logos/icon_위치_W.svg';
 import { ReactComponent as CalenderIcon } from '../../assets/logos/icon_캘린더_W.svg';
-
 function SubSlider({ media, exhibit, notice, ticket, title, moreInfo }) {
   return (
     <StyledSubSlider>

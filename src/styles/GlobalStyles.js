@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
     ${reset}
     @font-face {
         font-family: Pretendard;
-        src: url('../fonts/Pretendard-Regular.woff');
+        src: url('../fonts/Pretendard-Regular.woff') format('font-woff');
     }
     body {
         font-family: 'Pretendard';

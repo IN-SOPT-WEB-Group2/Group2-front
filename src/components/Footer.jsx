@@ -40,7 +40,7 @@ const MainFooter = styled.footer`
   * {
     font-family: 'Pretendard';
     font-style: normal;
-    font-size: 10px;
+    font-size: 0.625rem;
     line-height: 143.52%;
   }
 `;
@@ -59,7 +59,7 @@ const FooterItem = styled.li`
   &:not(:last-child)::after {
     content: '|';
     font-size: 0.0625rem;
-    margin: 11px;
+    margin: 0.6875rem;
   }
   font-weight: 500;
   color: #949494;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useGetAllContentInfo } from '../api/content';
+
 import Container from '../components/Container';
 import MainHeader from '../components/MainHeader';
 import CalenderNav from '../components/Schedule/CalenderNav';
@@ -10,6 +12,8 @@ import HallInfo from '../components/Schedule/HallInfo';
 import Detail from '../components/Schedule/Detail';
 
 export default function Schedule() {
+  const contentInfo = useGetAllContentInfo();
+  console.log(contentInfo);
   return (
     <Container main={false} isFull={false}>
       <MainHeader title="전체 일정" main={false} />

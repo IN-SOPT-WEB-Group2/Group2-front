@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { getAllContentInfo } from '../api/content';
+import { useGetAllContentInfo } from '../api/content';
 
 import Container from '../components/Container';
 import MainHeader from '../components/MainHeader';
@@ -12,9 +12,8 @@ import HallInfo from '../components/Schedule/HallInfo';
 import Detail from '../components/Schedule/Detail';
 
 export default function Schedule() {
-  useEffect(() => {
-    getAllContentInfo();
-  }, []);
+  const contentInfo = useGetAllContentInfo();
+  console.log(contentInfo);
   return (
     <Container main={false} isFull={false}>
       <MainHeader title="전체 일정" main={false} />

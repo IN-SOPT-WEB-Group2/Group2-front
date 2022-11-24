@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ImageSrc from '../../assets/images/exhibitionImage.png';
+// import ImageSrc from '../../assets/images/exhibitionImage.png';
 
-export default function ExhibitionInfo() {
+export default function ExhibitionInfo({ data }) {
   return (
     <Container>
-      <Image src={ImageSrc} />
+      <Image src={data.posterImage} />
       <InfoContainer>
-        <InfoTitle>헬가 스텐첼 사진전</InfoTitle>
+        <InfoTitle>{data.title}</InfoTitle>
       </InfoContainer>
     </Container>
   );
@@ -21,7 +21,11 @@ const Container = styled.article`
   gap: 0.875rem;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  border-radius: 0.3125rem;
+  width: 7.25rem;
+  height: 9.9375rem;
+`;
 
 const InfoContainer = styled.section``;
 

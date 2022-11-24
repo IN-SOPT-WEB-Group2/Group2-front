@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function ArrowButton({ children }) {
-  return <StyledArrowButton>{children}</StyledArrowButton>;
+export default function ArrowButton({ children, onClick }) {
+  return <StyledArrowButton onClick={onClick}>{children}</StyledArrowButton>;
 }
 
 const StyledArrowButton = styled.article`

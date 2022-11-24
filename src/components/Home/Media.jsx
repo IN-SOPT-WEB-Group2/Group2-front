@@ -63,22 +63,18 @@ const StyledMediaWrapper = styled.article`
   height: 20.9375rem;
 `;
 const StyledMediaNavContainer = styled.section`
-  width: 20.9375rem;
   height: 1.5625rem;
   margin-bottom: 0.375rem;
 `;
 const StyledMediaNav = styled.nav`
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 0.1875rem;
-  width: 20.9375rem;
   height: 1.25rem;
   margin-bottom: 0.3125rem;
   .selected {
     height: 1.25rem;
     font-weight: 600;
-    line-height: 135%;
     color: #ffffff;
   }
 `;
@@ -89,13 +85,11 @@ const StyledMediaBtn = styled.button`
   height: 1.125rem;
   font-weight: 400;
   font-size: 0.9375rem;
-  line-height: 1.125rem;
   display: flex;
   align-items: center;
   text-align: center;
   color: #62626a;
   flex: none;
-  order: 1;
   flex-grow: 0;
   justify-content: center;
   padding: 0;
@@ -111,12 +105,10 @@ const StyledFocus = styled.div`
   width: 6.8544rem;
   height: 0.125rem;
   left: ${(props) => `${props.selectedIndex * 113}px`};
-
   background-color: #ffffff;
   top: -0.0625rem;
 `;
 const StyledMedia = styled.article`
-  width: 23.4375rem;
   height: 12.4375rem;
   position: relative;
   margin-bottom: 0.5625rem;

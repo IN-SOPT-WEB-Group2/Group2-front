@@ -51,8 +51,6 @@ const PlacesContainer = styled.div`
 const StyledTitle = styled.div`
   width: 5.8125rem;
   height: 1.25rem;
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.25rem;
@@ -69,8 +67,6 @@ const PlaceItem = styled.div`
   height: 5.625rem;
 `;
 const StyledFont = styled.span`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 500;
   font-size: 0.8125rem;
   line-height: 135%;

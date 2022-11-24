@@ -167,7 +167,6 @@ const StyledSubSliderCard = styled.article`
   width: 9.375rem;
   height: 18.3125rem;
 `;
-
 const StyledImg = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
@@ -207,8 +206,6 @@ const StyledInfo = styled.div`
 const StyledTitle = styled.p`
   width: 9.375rem;
   white-space: pre-line;
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 600;
   font-size: 0.9375rem;
   line-height: 135%;
@@ -235,20 +232,13 @@ const StyledLocation = styled(StyledDate)`
 const StyledCalenderIcon = styled.div`
   width: 1.25rem;
   height: 1.375rem;
-  svg {
-    width: 100%;
-    height: 100%;
-  }
 `;
 const StyledLocationIcon = styled(StyledCalenderIcon)`
   height: 1.25rem;
 `;
-
 const StyledLocationText = styled.p`
   width: 5.375rem;
   height: 0.8125rem;
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 300;
   font-size: 0.6875rem;
   line-height: 0.8125rem;

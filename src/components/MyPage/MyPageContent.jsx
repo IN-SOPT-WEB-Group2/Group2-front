@@ -23,7 +23,7 @@ export default function MyPageContent() {
   );
 }
 
-const StlyedContainer = styled.div`
+const StlyedContainer = styled.section`
   height: 100vh;
   margin: 30px 20px 50px;
 `;

@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function MenuList(props) {
-  const { menuTitle, menuItems } = props;
+let MENU_ID = 0;
+
+export default function MenuList({ menuTitle, menuItems }) {
   return (
     <MenuTitle>
-      {menuTitle}
-      {menuItems.map((item, index) => (
-        <MenuItem key={index}>{item}</MenuItem>
+      <div>{menuTitle}</div>
+      {menuItems.map((item) => (
+        <MenuItem key={MENU_ID++}>{item}</MenuItem>
       ))}
     </MenuTitle>
   );

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Line(props) {
-  const { width,margin } = props;
+export default function Line({ width, margin }) {
   return <StyledLine width={width} margin={margin}></StyledLine>;
 }
 

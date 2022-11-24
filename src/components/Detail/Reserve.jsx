@@ -18,21 +18,16 @@ export default function Reserve() {
     setLike((prev) => !prev);
   };
 
-  const onClickReserve = async (e) => {
+  const onClickReserve = (e) => {
     reservation ? setBgColor('#ED1A3B') : setBgColor('#41414d');
     reservation ? (e.target.innerHTML = '예매하기') : (e.target.innerHTML = '취소하기');
 
     if (!reservation) {
-      await setHidden((prev)=> !prev);
-      // await setTimeout(() => {
-      //   setHidden((prev) => !prev);
-      // }, 500);
-
+      setHidden((prev) => !prev);
       setTimeout(() => {
         setHidden((prev) => !prev);
       }, 3000);
     }
-
     setReservation((prev) => !prev);
   };
 

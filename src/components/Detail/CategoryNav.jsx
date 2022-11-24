@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useState } from 'react';
 
 export default function CategoryNav() {
@@ -41,9 +41,17 @@ const StyeldItem = styled.div`
   width: calc(335px / 3);
   height: 100%;
   font-size: 15px;
-  font-weight: ${(props) => (props.isClicked ? '600' : '400')};
-  line-height: ${(props) => (props.isClicked ? '20.25px' : '18px')};
-  border-bottom: ${(props) => (props.isClicked ? '3px solid #ED1A3B' : 'none')};
-  color: ${(props) => (props.isClicked ? '#ED1A3B' : '#949494')};
+  ${(props) =>
+    props.isClicked
+      ? css`
+          font-weight: 600;
+          border-bottom: 3px solid #ed1a3b;
+          color: #ed1a3b;
+        `
+      : css`
+          font-weight: 400;
+          border-bottom: none;
+          color: #949494;
+        `}
   cursor: pointer;
 `;

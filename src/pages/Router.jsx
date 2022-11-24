@@ -8,6 +8,7 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Home from './Home';
 import Schedule from './Schedule';
 import Detail from './Detail';
+import MyPage from './MyPage';
 
 export default function Router() {
   return (
@@ -18,6 +19,7 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/detail" element={<Detail />} />
+          <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </ThemeProvider>
     </BrowserRouter>

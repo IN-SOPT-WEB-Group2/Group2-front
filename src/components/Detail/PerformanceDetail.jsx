@@ -16,6 +16,13 @@ export default function PerformanceDetail({ data }) {
     }
   };
 
+  // console.log(data.detailInfo);
+  let title = data.detailInfo;
+  title = Array.from(title.matchAll('\\[(.*?)\\]'), (match) => `${match[0]}`);
+  let content = data.detailInfo.replace(title[0], '');
+  title = title[0].replace('[', '');
+  title = title.replace(']', '');
+
   const [height, setHeight] = useState('43.1875rem');
   const [text, setText] = useState('설명 더보기');
   const [icon, setIcon] = useState(DropDown);
@@ -35,8 +42,8 @@ export default function PerformanceDetail({ data }) {
         <StyledViewMoreIcon src={icon} alt="더보기" />
       </StyledViewMoreBtn>
       <StyledWrap>
-        <StyledTitle>작가 소개</StyledTitle>
-        <StyledContent>{data.detailInfo}</StyledContent>
+        <StyledTitle>{title}</StyledTitle>
+        <StyledContent>{content}</StyledContent>
       </StyledWrap>
     </StyledContainer>
   );

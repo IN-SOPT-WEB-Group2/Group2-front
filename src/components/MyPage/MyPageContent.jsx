@@ -24,7 +24,6 @@ export default function MyPageContent() {
 }
 
 const StlyedContainer = styled.section`
-  height: 100vh;
   margin: 1.875rem 0 3.125rem 0;
 `;
 

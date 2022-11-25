@@ -7,7 +7,7 @@ import { ReactComponent as MainIcon } from '../assets/logos/image_logo.svg';
 
 export default function MainHeader({ title, main }) {
   return (
-    <MainHeaderBox>
+    <MainHeaderBox main={main}>
       <MenuIcon />
       {main ? <MainIcon /> : <HeaderTitle>{title}</HeaderTitle>}
       <SearchIcon />
@@ -17,12 +17,11 @@ export default function MainHeader({ title, main }) {
 
 const MainHeaderBox = styled.header`
   background-color: ${({ theme }) => theme.colors.background};
-  width: calc(100% - 36px);
-  margin: 0 1.125rem 0 -1.125rem;
   ${(props) =>
     !props.main &&
     css`
       width: calc(100% + 2.25rem);
+      margin: 0 1.125rem 0 -1.125rem;
     `}
   display: flex;
   justify-content: space-between;

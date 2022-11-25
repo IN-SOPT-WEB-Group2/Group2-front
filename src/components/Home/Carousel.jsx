@@ -71,7 +71,7 @@ const SliderNav = styled.nav`
 const CurrentSlide = styled.div`
   width: 4.5625rem;
   height: 0.1875rem;
-  background-color: #ed1a3b;
+  background-color: ${({ theme }) => theme.colors.red};
   position: absolute;
   top: -0.0625rem;
   transform: ${(props) => `translateX(${-1.5 + props.posterIdx * 36}px)`};
@@ -80,7 +80,7 @@ const Slidebar = styled.div`
   width: 13.25rem;
   height: 0.0625rem;
   position: relative;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 const Card = styled.article`
   display: flex;
@@ -103,7 +103,7 @@ const Title = styled.p`
   font-size: 1.0625rem;
   line-height: 1.25rem;
   text-align: center;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   height: 1.25rem;
   margin-bottom: 0.4375rem;
 `;

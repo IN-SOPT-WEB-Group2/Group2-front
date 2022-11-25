@@ -1,23 +1,19 @@
-import { useEffect, useState } from 'react';
 import { contentAPI } from './api';
 
-export const useGetAllContentInfo = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [contentInfo, setContentInfo] = useState([]);
-  const getAllContentInfo = async () => {
-    setIsLoading(true);
-    try {
-      const res = await contentAPI.get('/content');
-      setContentInfo([...contentInfo, res.data.data]);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  useEffect(() => {
-    getAllContentInfo();
-  }, []);
+export const getAllContentInfo = async () => {
+  try {
+    const res = await contentAPI.get('/content');
+    return res.data.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-  return [isLoading, contentInfo];
+export const getDayContentInfo = async (date) => {
+  try {
+    const res = await contentAPI.get(`/content/date?date=${date}`);
+    return res.data;
+  } catch (error) {
+    console.error(error);
+  }
 };

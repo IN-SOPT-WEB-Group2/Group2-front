@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useGetAllContentInfo } from '../api/content';
-
 import Container from '../components/Container';
 import MainHeader from '../components/MainHeader';
 import CalenderNav from '../components/Schedule/CalenderNav';
@@ -10,10 +8,9 @@ import Calendar from '../components/Schedule/Calendar';
 import WarningText from '../components/Schedule/WarningText';
 import HallInfo from '../components/Schedule/HallInfo';
 import Detail from '../components/Schedule/Detail';
+import Footer from '../components/Footer';
 
 export default function Schedule() {
-  const contentInfo = useGetAllContentInfo();
-  console.log(contentInfo);
   return (
     <Container main={false} isFull={false}>
       <MainHeader title="전체 일정" main={false} />
@@ -23,6 +20,7 @@ export default function Schedule() {
       <WarningText />
       <HallInfo />
       <Detail />
+      <Footer main={false} />
     </Container>
   );
 }

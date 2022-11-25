@@ -24,7 +24,7 @@ export default function HomeContent() {
         <Media />
       </StyledInfosContainer>
       <Others />
-      <Footer />
+      <Footer main={true} />
       <StyledChatbotWrapper>
         <ChatbotIcon />
       </StyledChatbotWrapper>

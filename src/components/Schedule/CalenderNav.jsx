@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 export default function CalenderNav() {
-  const [activeId, setActiveId] = useState(0);
+  const location = useLocation();
+  const [activeId, setActiveId] = useState(location.state.id);
   const handleClickMenu = (id) => {
     setActiveId(id);
   };

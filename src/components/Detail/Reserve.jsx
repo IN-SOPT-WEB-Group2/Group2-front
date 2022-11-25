@@ -55,45 +55,45 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 375px;
-  height: 64px;
+  width: 23.4375rem;
+  height: 4rem;
 
-  background-color: #ffffff;
-  border: 1px solid #e2e2e2;
+  background-color: ${({ theme }) => theme.colors.white};
+  border: 0.0625rem solid #e2e2e2;
 `;
 
 const StyledWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 335px;
+  width: 20.9375rem;
 `;
 
 const StyledReserveBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 217.16px;
-  height: 41px;
-  border-radius: 42px;
+  width: 13.5725rem;
+  height: 2.5625rem;
+  border-radius: 2.625rem;
   border: none;
-  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 600;
-  line-height: 20.29px;
+  line-height: 1.2681rem;
   background-color: ${(props) => props.bgColor};
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const StyledIcon = styled.img`
   cursor: pointer;
 `;
 const StyledIconWrap = styled.div`
-  margin-left: 12.84px;
+  margin-left: 0.8025rem;
 `;
 
 const StyledCompleteImage = styled.img`
   position: fixed;
-  bottom: 59px;
+  bottom: 3.6875rem;
   z-index: 99;
   animation: ${(props) => props.fadein} 0.5s;
 `;

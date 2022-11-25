@@ -12,7 +12,7 @@ export default function MyPageContent() {
   return (
     <StlyedContainer>
       <ProfileCard />
-      <CategoryNav/>
+      <CategoryNav />
       <Line width="335px" margin="22px 0" />
       <MenuList menuTitle="계정 설정" menuItems={setAccount} />
       <Line width="335px" margin="22px 0" />
@@ -25,12 +25,12 @@ export default function MyPageContent() {
 
 const StlyedContainer = styled.section`
   height: 100vh;
-  margin: 30px 20px 50px;
+  margin: 30px 0 50px 0;
 `;
 
 const Logout = styled.p`
   font-size: 13px;
   font-weight: 500;
-  color: #9d9d9d;
+  color: ${({ theme }) => theme.colors.gray5};
   cursor: pointer;
 `;

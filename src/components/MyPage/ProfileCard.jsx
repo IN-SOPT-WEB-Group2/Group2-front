@@ -14,7 +14,7 @@ export default function ProfileCard() {
           </FlexWrap>
           <StyledLoginUser>로그인 사용자</StyledLoginUser>
         </Center>
-        <Line width="306px" margin="12px 0"/>
+        <Line width="306px" margin="12px 0" />
         <MembershipContainer>
           <img src={IconGrade} alt="회원등급아이콘" />
           <MembershipInfo>
@@ -72,13 +72,13 @@ const StyledId = styled.p`
   font-size: 15px;
   font-weight: 400;
   margin-left: 5px;
-  color: #949494;
+  color: ${({ theme }) => theme.colors.gray2};
 `;
 
 const StyledLoginUser = styled.p`
   font-size: 13px;
   font-weight: 500;
-  color: #949494;
+  color: ${({ theme }) => theme.colors.gray2};
 `;
 
 const Center = styled.div`
@@ -93,7 +93,7 @@ const Tag = styled.div`
   align-items: center;
   width: 43px;
   height: 20px;
-  background-color: #62626a;
+  background-color: ${({ theme }) => theme.colors.gray1};
   font-size: 13px;
   color: white;
 `;
@@ -107,7 +107,7 @@ const MembershipLevel = styled.div`
 
 const Period = styled.div`
   font-size: 11px;
-  color: #949494;
+  color: ${({ theme }) => theme.colors.gray2};
 `;
 
 const Renewal = styled.button`
@@ -116,10 +116,10 @@ const Renewal = styled.button`
   align-items: center;
   width: 124px;
   height: 30px;
-  background-color: #41414d;
+  background-color: ${({ theme }) => theme.colors.background};
   font-size: 13px;
   font-weight: 500;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   border: none;
   cursor: pointer;
 `;

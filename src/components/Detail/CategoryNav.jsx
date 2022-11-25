@@ -28,30 +28,30 @@ const StyledItemWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 20px;
-  width: 335px;
-  height: calc(18px + 22px);
-  border-bottom: 1px solid #e2e2e2;
+  margin: 0 1.25rem;
+  width: 20.9375rem;
+  height: calc(1.125rem + 1.375rem);
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.white_secondary};
 `;
 
 const StyeldItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(335px / 3);
+  width: calc(20.9375rem / 3);
   height: 100%;
-  font-size: 15px;
+  font-size: 0.9375rem;
   ${(props) =>
     props.isClicked
       ? css`
           font-weight: 600;
-          border-bottom: 3px solid #ed1a3b;
-          color: #ed1a3b;
+          border-bottom: 0.1875rem solid ${({ theme }) => theme.colors.red};
+          color: ${({ theme }) => theme.colors.red};
         `
       : css`
           font-weight: 400;
           border-bottom: none;
-          color: #949494;
+          color: ${({ theme }) => theme.colors.gray2};
         `}
   cursor: pointer;
 `;

@@ -14,7 +14,7 @@ export default function ProfileCard() {
           </FlexWrap>
           <StyledLoginUser>로그인 사용자</StyledLoginUser>
         </Center>
-        <Line width="306px" margin="12px 0"/>
+        <Line width="19.125rem" margin="0.75rem 0" />
         <MembershipContainer>
           <img src={IconGrade} alt="회원등급아이콘" />
           <MembershipInfo>
@@ -35,24 +35,24 @@ const ProfileBox = styled.article`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 335px;
-  height: 166px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  width: 20.9375rem;
+  height: 10.375rem;
+  box-shadow: 0rem 0rem 0.9375rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.3125rem;
   background-color: var(--color-white);
 `;
 
 const ProfileWrap = styled.div`
-  width: 306px;
-  height: 126px;
+  width: 19.125rem;
+  height: 7.875rem;
 `;
 
 const MembershipContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 218px;
-  height: 77px;
-  margin-top: 12px;
+  width: 13.625rem;
+  height: 4.8125rem;
+  margin-top: 0.75rem;
 `;
 
 const MembershipInfo = styled.div`
@@ -60,25 +60,25 @@ const MembershipInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  margin-left: 16px;
+  margin-left: 1rem;
 `;
 
 const StyledName = styled.p`
-  font-size: 19px;
+  font-size: 1.1875rem;
   font-weight: 600;
 `;
 
 const StyledId = styled.p`
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 400;
-  margin-left: 5px;
-  color: #949494;
+  margin-left: 0.3125rem;
+  color: ${({ theme }) => theme.colors.gray2};
 `;
 
 const StyledLoginUser = styled.p`
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: #949494;
+  color: ${({ theme }) => theme.colors.gray2};
 `;
 
 const Center = styled.div`
@@ -91,35 +91,35 @@ const Tag = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 43px;
-  height: 20px;
-  background-color: #62626a;
-  font-size: 13px;
+  width: 2.6875rem;
+  height: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.gray1};
+  font-size: 0.8125rem;
   color: white;
 `;
 
 const MembershipLevel = styled.div`
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
-  line-height: 20.25px;
-  margin-left: 6px;
+  line-height: 1.2656rem;
+  margin-left: 0.375rem;
 `;
 
 const Period = styled.div`
-  font-size: 11px;
-  color: #949494;
+  font-size: 0.6875rem;
+  color: ${({ theme }) => theme.colors.gray2};
 `;
 
 const Renewal = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 124px;
-  height: 30px;
-  background-color: #41414d;
-  font-size: 13px;
+  width: 7.75rem;
+  height: 1.875rem;
+  background-color: ${({ theme }) => theme.colors.background};
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: white;
+  color: ${({ theme }) => theme.colors.white};
   border: none;
   cursor: pointer;
 `;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import useGetDayContentInfo from '../../util/hook/useGetDayContentInfo';
 
 import ArrowButton from '../ArrowButton';
 import ExhibitionInfo from './ExhibitionInfo';
@@ -7,25 +8,34 @@ import { ReactComponent as LeftArrowLogo } from '../../assets/logos/left-arrow.s
 import { ReactComponent as RightArrowLogo } from '../../assets/logos/right-arrow.svg';
 
 export default function Detail() {
+  const [dateInfo, setDateInfo] = useState('01');
+  const contentInfo = useGetDayContentInfo(`2022-11-${dateInfo}`);
+
+  const handleClickLeftButton = () => {
+    setDateInfo((prev) => '0' + (parseInt(prev) - 1));
+  };
+
+  const handleClickRightButton = () => {
+    setDateInfo((prev) => '0' + (parseInt(prev) + 1));
+  };
   return (
     <DetailContainer>
       <DetailTitle>
         <DateContainer>
-          <Date>2022년 11월 1일</Date>
+          <Date>2022년 11월 {dateInfo}일</Date>
           <Title>일정</Title>
         </DateContainer>
         <ButtonContainer>
-          <ArrowButton>
+          <ArrowButton onClick={handleClickLeftButton}>
             <LeftArrowLogo />
           </ArrowButton>
-          <ArrowButton>
+          <ArrowButton onClick={handleClickRightButton}>
             <RightArrowLogo />
           </ArrowButton>
         </ButtonContainer>
       </DetailTitle>
-      <ExhibitionInfo />
-      <ExhibitionInfo />
-      <ExhibitionInfo />
+      {contentInfo.data &&
+        contentInfo.data.map((item) => <ExhibitionInfo key={item.id} data={item} />)}
     </DetailContainer>
   );
 }

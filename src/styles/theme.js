@@ -8,6 +8,7 @@ const colors = {
   gray3: '#E2E2E2',
   gray4: '#F2F2F2',
   gray6: '#373741',
+  gray5: '#9D9D9D',
   calendar_blue: '#5873FF',
   calendar_purple: '#B658FF',
   calendar_gray: '#ACB8E2',
@@ -15,6 +16,7 @@ const colors = {
   white_secondary: '#E2E2E2',
   white: '#FFFFFF',
   black: '#131112',
+  black_secondary: '#232323'
 };
 
 const theme = {

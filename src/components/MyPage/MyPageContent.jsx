@@ -12,12 +12,12 @@ export default function MyPageContent() {
   return (
     <StlyedContainer>
       <ProfileCard />
-      <CategoryNav/>
-      <Line width="335px" margin="22px 0" />
+      <CategoryNav />
+      <Line width="20.9375rem" margin="1.375rem 0" />
       <MenuList menuTitle="계정 설정" menuItems={setAccount} />
-      <Line width="335px" margin="22px 0" />
+      <Line width="20.9375rem" margin="1.375rem 0" />
       <MenuList menuTitle="고객 센터" menuItems={callCenter} />
-      <Line width="335px" margin="22px 0" />
+      <Line width="20.9375rem" margin="1.375rem 0" />
       <Logout>로그아웃</Logout>
     </StlyedContainer>
   );
@@ -25,12 +25,12 @@ export default function MyPageContent() {
 
 const StlyedContainer = styled.section`
   height: 100vh;
-  margin: 30px 20px 50px;
+  margin: 1.875rem 0 3.125rem 0;
 `;
 
 const Logout = styled.p`
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: #9d9d9d;
+  color: ${({ theme }) => theme.colors.gray5};
   cursor: pointer;
 `;

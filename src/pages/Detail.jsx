@@ -5,10 +5,9 @@ import MainHeader from '../components/MainHeader';
 import Footer from '../components/Footer';
 export default function Detail() {
   return (
-    <Container>
+    <Container isFull={false}>
       <MainHeader main={false} title={'공연/전시 정보'} />
       <DetailContent />
-
       <Footer />
     </Container>
   );

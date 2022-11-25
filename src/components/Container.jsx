@@ -11,7 +11,7 @@ export default function Container({ children, main, isFull }) {
 }
 
 const Box = styled.article`
-  background-color: ${(props) => (props.main ? theme.colors.background : theme.colors.white)};
+  background-color: ${(props) => (props.main ? `transparent` : theme.colors.white)};
   width: 23.4375rem;
   margin: 1.875rem auto;
   padding: ${(props) => !props.isFull && '0 1.125rem'};

@@ -1,54 +1,29 @@
 import styled from 'styled-components';
-import React, { useState } from 'react';
+import React from 'react';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
-export default function Carousel() {
-  const [current, setCurrent] = useState(0);
-  const postersInfo = [
-    {
-      posterSrc: `/posters/2.차이코프스키_포스터.jpg`,
-      title: '차이코프스크키 전시회',
-      date: '2022.01.02 ~ 2022.01.06',
-    },
-    {
-      posterSrc: `/posters/1.전재성_포스터.png`,
-      title: '전재성 연주회',
-      date: '2022.01.02',
-    },
-    {
-      posterSrc: `/posters/3.알버트사진전_포스터.jpg`,
-      title: '전재성 연주회',
-      date: '2022.01.02',
-    },
-    {
-      posterSrc: `/posters/7.뮤지컬브로드웨이_포스터.png`,
-      title: '뮤지컬 브로드웨이',
-      date: '2022.10.25',
-    },
-    {
-      posterSrc: `/posters/4.드림어빌리티_포스터.jpg`,
-      title: '전재성 연주회',
-      date: '2022.01.02',
-    },
-  ];
+import { useNavigate } from 'react-router-dom';
+export default function Carousel({ setPosterIdx, carouselData, posterIdx }) {
   return (
     <SliderLayout>
       <MainSliderLayout>
         <ReactScrollWheelHandler
           rightHandler={() => {
-            if (current > 0) setCurrent(current - 1);
+            if (posterIdx > 0) setPosterIdx(posterIdx - 1);
           }}
           leftHandler={() => {
-            if (current < postersInfo.length - 1) setCurrent(current + 1);
+            if (posterIdx < carouselData.length - 1) setPosterIdx(posterIdx + 1);
           }}
         >
-          <Cards current={current}>
-            {postersInfo.map(({ posterSrc, title, date }) => {
+          <Cards posterIdx={posterIdx}>
+            {carouselData.map(({ posterImage, title, startDate, endDate, id }) => {
               return (
                 <CardLayout
-                  posterSrc={posterSrc}
+                  posterImage={posterImage}
                   title={title}
-                  date={date}
-                  key={posterSrc}
+                  endDate={endDate}
+                  startDate={startDate}
+                  key={title}
+                  id={id}
                 ></CardLayout>
               );
             })}
@@ -57,18 +32,33 @@ export default function Carousel() {
       </MainSliderLayout>
       <SliderNav>
         <Slidebar>
-          <CurrentSlide current={current}></CurrentSlide>
+          <CurrentSlide posterIdx={posterIdx}></CurrentSlide>
         </Slidebar>
       </SliderNav>
     </SliderLayout>
   );
 }
-const CardLayout = ({ posterSrc, title, date }) => {
+const CardLayout = ({ posterImage, title, startDate, endDate, id }) => {
+  const navigate = useNavigate();
+  const toDetailPg = (id) =>
+    navigate(`/detail/${id}`, {
+      state: {
+        id: id,
+      },
+    });
   return (
     <Card>
-      <Poster src={posterSrc} draggable={false}></Poster>
+      <Poster
+        src={posterImage}
+        draggable={false}
+        onClick={() => {
+          toDetailPg(id);
+        }}
+      ></Poster>
       <Title>{title}</Title>
-      <Date>{date}</Date>
+      <Date>
+        {startDate} - {endDate}
+      </Date>
     </Card>
   );
 };
@@ -83,7 +73,7 @@ const MainSliderLayout = styled.article`
 `;
 const Cards = styled.section`
   display: flex;
-  transform: ${(props) => `translateX(${97.5 - props.current * 200}px)`};
+  transform: ${(props) => `translateX(${97.5 - props.posterIdx * 203}px)`};
   gap: 1.375rem;
 `;
 const SliderNav = styled.nav`
@@ -96,16 +86,16 @@ const SliderNav = styled.nav`
 const CurrentSlide = styled.div`
   width: 4.5625rem;
   height: 0.1875rem;
-  background-color: #ed1a3b;
+  background-color: ${({ theme }) => theme.colors.red};
   position: absolute;
   top: -0.0625rem;
-  transform: ${(props) => `translateX(${-1.5 + props.current * 36}px)`};
+  transform: ${(props) => `translateX(${-1.5 + props.posterIdx * 36}px)`};
 `;
 const Slidebar = styled.div`
   width: 13.25rem;
   height: 0.0625rem;
   position: relative;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 const Card = styled.article`
   display: flex;
@@ -120,6 +110,7 @@ const Poster = styled.img`
   height: 14.25rem;
   border-radius: 0.3125rem;
   margin-bottom: 1.0625rem;
+  cursor: pointer;
 `;
 const Title = styled.p`
   font-family: 'Pretendard';
@@ -128,7 +119,7 @@ const Title = styled.p`
   font-size: 1.0625rem;
   line-height: 1.25rem;
   text-align: center;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   height: 1.25rem;
   margin-bottom: 0.4375rem;
 `;

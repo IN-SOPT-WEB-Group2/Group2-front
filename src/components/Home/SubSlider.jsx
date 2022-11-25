@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as ArrowIcon } from '../../assets/logos/icon_화살표.svg';
 import { ReactComponent as ExhibitIcon } from '../../assets/logos/icon_이번주공연전시.svg';
@@ -7,7 +8,7 @@ import { ReactComponent as NoticeIcon } from '../../assets/logos/icon_공지사�
 import { ReactComponent as MediaIcon } from '../../assets/logos/icon_미디어.svg';
 import { ReactComponent as LocationIcon } from '../../assets/logos/icon_위치_W.svg';
 import { ReactComponent as CalenderIcon } from '../../assets/logos/icon_캘린더_W.svg';
-function SubSlider({ media, exhibit, notice, ticket, title, moreInfo }) {
+function SubSlider({ media, exhibit, notice, ticket, title, moreInfo, data }) {
   return (
     <StyledSubSlider>
       <SubHeader
@@ -19,19 +20,35 @@ function SubSlider({ media, exhibit, notice, ticket, title, moreInfo }) {
         moreInfo={moreInfo}
       ></SubHeader>
       <StyledSubSliderCards>
-        {/* 예시 */}
-        <SubSliderCard
-          src={'/posters/4.드림어빌리티_포스터.jpg'}
-          tag="전시"
-          title={'뮤지컬 브로드웨이 콘서트입니다'}
-          endDate={'2022.03.10'}
-          startDate={'2022.02.15'}
-        ></SubSliderCard>
+        {data.length
+          ? data.map(({ posterImage, title, tag, endDate, startDate, locationDetail, id }) => {
+              return (
+                <SubSliderCard
+                  posterImage={posterImage}
+                  locationDetail={locationDetail}
+                  title={title}
+                  tag={tag}
+                  startDate={startDate}
+                  endDate={endDate}
+                  key={title}
+                  id={id}
+                ></SubSliderCard>
+              );
+            })
+          : null}
       </StyledSubSliderCards>
     </StyledSubSlider>
   );
 }
 const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
+  const navigate = useNavigate();
+  const toSchedule = () => {
+    if (ticket || exhibit) {
+      navigate('/schedule', {
+        state: { id: 0 },
+      });
+    }
+  };
   return (
     <StyledSubHeader>
       {media && <MediaIcon></MediaIcon>}
@@ -40,7 +57,11 @@ const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
       {ticket && <TicketIcon></TicketIcon>}
       <StyledSlideInfo>
         <StyledSlideName>{title}</StyledSlideName>
-        <StyledMoreInfo>
+        <StyledMoreInfo
+          onClick={() => {
+            toSchedule();
+          }}
+        >
           <StyledMoreInfoContent>{moreInfo ? moreInfo : '더보기'}</StyledMoreInfoContent>
           <ArrowIcon />
         </StyledMoreInfo>
@@ -48,10 +69,22 @@ const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
     </StyledSubHeader>
   );
 };
-const SubSliderCard = ({ src, tag, title, endDate, startDate, locationDetail }) => {
+const SubSliderCard = ({ posterImage, tag, title, endDate, startDate, locationDetail, id }) => {
+  const navigate = useNavigate();
+  const toDetailPg = (id) =>
+    navigate(`/detail/${id}`, {
+      state: {
+        id: id,
+      },
+    });
   return (
     <StyledSubSliderCard>
-      <StyledImg src={src}>
+      <StyledImg
+        src={posterImage}
+        onClick={() => {
+          toDetailPg(id);
+        }}
+      >
         <StyledType>
           <StyledText>{tag}</StyledText>
         </StyledType>
@@ -112,7 +145,7 @@ const StyledSlideName = styled.p`
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.25rem;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   text-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   flex: none;
   order: 0;
@@ -128,6 +161,7 @@ const StyledMoreInfo = styled.div`
   flex: none;
   order: 1;
   flex-grow: 0;
+  cursor: pointer;
 `;
 const StyledMoreInfoContent = styled.div`
   width: 5.375rem;
@@ -137,7 +171,7 @@ const StyledMoreInfoContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -167,7 +201,6 @@ const StyledSubSliderCard = styled.article`
   width: 9.375rem;
   height: 18.3125rem;
 `;
-
 const StyledImg = styled.div`
   background-image: url(${(props) => props.src});
   background-size: cover;
@@ -175,6 +208,7 @@ const StyledImg = styled.div`
   height: 11.9375rem;
   border-radius: 0.3125rem;
   position: relative;
+  cursor: pointer;
 `;
 const StyledType = styled.div`
   position: absolute;
@@ -182,17 +216,16 @@ const StyledType = styled.div`
   height: 1.6875rem;
   left: 5.375rem;
   top: 9.6875rem;
-  background: #41414d;
+  background: ${({ theme }) => theme.colors.background};
   padding: 0.25rem;
   text-align: center;
 `;
 const StyledText = styled.div`
-  width: 1.4375rem;
   height: 1.1875rem;
   font-weight: 500;
   font-size: 0.8125rem;
   line-height: 143.52%;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   display: inline-block;
 `;
 const StyledInfo = styled.div`
@@ -207,14 +240,12 @@ const StyledInfo = styled.div`
 const StyledTitle = styled.p`
   width: 9.375rem;
   white-space: pre-line;
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 600;
   font-size: 0.9375rem;
   line-height: 135%;
   display: flex;
   align-items: center;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;
 const StyledDateLocation = styled.div`
   width: 9.375rem;
@@ -235,24 +266,17 @@ const StyledLocation = styled(StyledDate)`
 const StyledCalenderIcon = styled.div`
   width: 1.25rem;
   height: 1.375rem;
-  svg {
-    width: 100%;
-    height: 100%;
-  }
 `;
 const StyledLocationIcon = styled(StyledCalenderIcon)`
   height: 1.25rem;
 `;
-
 const StyledLocationText = styled.p`
   width: 5.375rem;
   height: 0.8125rem;
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 300;
   font-size: 0.6875rem;
   line-height: 0.8125rem;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;
 const StyledDateText = styled(StyledLocationText)`
   width: 7.125rem;

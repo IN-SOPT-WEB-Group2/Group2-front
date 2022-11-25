@@ -63,7 +63,7 @@ const StyledNoticeContent = styled.span`
   line-height: 1.125rem;
   width: 16.25rem;
   height: 1.125rem;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;
 const StyledNoticeDate = styled.span`
   width: 3.3125rem;
@@ -74,13 +74,13 @@ const StyledNoticeDate = styled.span`
   display: flex;
   align-items: center;
   text-align: right;
-  color: #62626a;
+  color: ${({ theme }) => theme.colors.gray1};
 `;
 const StyledBorder = styled.div`
   width: 20.9375rem;
   height: 0.0437rem;
   flex: none;
-  background-color: #62626a;
+  background-color: ${({ theme }) => theme.colors.gray1};
   &:last-of-type {
     display: none;
   }

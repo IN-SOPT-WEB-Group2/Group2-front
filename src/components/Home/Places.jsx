@@ -1,26 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as PlaceIcon2 } from '../../assets/logos/icon_오페라하우스.svg';
 import { ReactComponent as PlaceIcon1 } from '../../assets/logos/icon_음악당.svg';
 import { ReactComponent as PlaceIcon3 } from '../../assets/logos/icon_전시장.svg';
 export default function Places() {
+  const navigate = useNavigate();
+  const toSchedule = (id) => {
+    navigate('/schedule', {
+      state: { id: id },
+    });
+  };
   return (
     <StyledPlaces>
       <StyledTitle>공간 둘러보기</StyledTitle>
       <PlacesContainer>
-        <PlaceItem>
+        <PlaceItem
+          onClick={() => {
+            toSchedule(0);
+          }}
+        >
           <div>
             <PlaceIcon1></PlaceIcon1>
           </div>
           <StyledFont>음악당</StyledFont>
         </PlaceItem>
-        <PlaceItem>
+        <PlaceItem
+          onClick={() => {
+            toSchedule(1);
+          }}
+        >
           <div>
             <PlaceIcon2></PlaceIcon2>
           </div>
           <StyledFont>오페라하우스</StyledFont>
         </PlaceItem>
-        <PlaceItem>
+        <PlaceItem
+          onClick={() => {
+            toSchedule(2);
+          }}
+        >
           <div>
             <PlaceIcon3></PlaceIcon3>
           </div>
@@ -36,7 +55,7 @@ const StyledPlaces = styled.article`
   justify-content: center;
   align-items: center;
   height: 11.75rem;
-  background-color: #41414d;
+  background-color: ${({ theme }) => theme.colors.background};
   padding: 1.75rem 0;
   gap: 1.375rem;
 `;
@@ -51,13 +70,11 @@ const PlacesContainer = styled.div`
 const StyledTitle = styled.div`
   width: 5.8125rem;
   height: 1.25rem;
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.25rem;
   text-align: center;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 const PlaceItem = styled.div`
   display: flex;
@@ -69,11 +86,9 @@ const PlaceItem = styled.div`
   height: 5.625rem;
 `;
 const StyledFont = styled.span`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 500;
   font-size: 0.8125rem;
   line-height: 135%;
   text-align: center;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;

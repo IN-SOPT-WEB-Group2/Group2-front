@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function PerformanceInfo({ data }) {
+  let price = data.price;
+  price = price.replace('["', '');
+  price = price.replace('"]', '');
+
   return (
     <StyledContainer>
       <StyledTitle>{data.title}</StyledTitle>
@@ -33,7 +37,7 @@ export default function PerformanceInfo({ data }) {
         </StyledInfoWrap>
         <StyledInfoWrap>
           <StyledInfoTitle>가격</StyledInfoTitle>
-          <StyledInfoContent>{data.price}</StyledInfoContent>
+          <StyledInfoContent>{price}</StyledInfoContent>
         </StyledInfoWrap>
       </StyledInfoContainer>
     </StyledContainer>
@@ -85,12 +89,14 @@ const StyledInfoWrap = styled.div`
 `;
 
 const StyledInfoTitle = styled.div`
+  flex: none;
   font-size: 0.9375rem;
   font-weight: 600;
   line-height: 135%;
   color: ${({ theme }) => theme.colors.black};
 `;
 const StyledInfoContent = styled.span`
+  width: ;
   font-size: 0.9375rem;
   line-height: 1.125rem;
   margin-left: 1.25rem;

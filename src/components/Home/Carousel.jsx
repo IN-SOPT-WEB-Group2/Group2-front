@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import ReactScrollWheelHandler from 'react-scroll-wheel-handler';
+import { useNavigate } from 'react-router-dom';
 export default function Carousel({ setPosterIdx, carouselData, posterIdx }) {
   return (
     <SliderLayout>
@@ -14,7 +15,7 @@ export default function Carousel({ setPosterIdx, carouselData, posterIdx }) {
           }}
         >
           <Cards posterIdx={posterIdx}>
-            {carouselData.map(({ posterImage, title, startDate, endDate }) => {
+            {carouselData.map(({ posterImage, title, startDate, endDate, id }) => {
               return (
                 <CardLayout
                   posterImage={posterImage}
@@ -22,6 +23,7 @@ export default function Carousel({ setPosterIdx, carouselData, posterIdx }) {
                   endDate={endDate}
                   startDate={startDate}
                   key={title}
+                  id={id}
                 ></CardLayout>
               );
             })}
@@ -36,10 +38,23 @@ export default function Carousel({ setPosterIdx, carouselData, posterIdx }) {
     </SliderLayout>
   );
 }
-const CardLayout = ({ posterImage, title, startDate, endDate }) => {
+const CardLayout = ({ posterImage, title, startDate, endDate, id }) => {
+  const navigate = useNavigate();
+  const toDetailPg = (id) =>
+    navigate(`/detail/${id}`, {
+      state: {
+        id: id,
+      },
+    });
   return (
     <Card>
-      <Poster src={posterImage} draggable={false}></Poster>
+      <Poster
+        src={posterImage}
+        draggable={false}
+        onClick={() => {
+          toDetailPg(id);
+        }}
+      ></Poster>
       <Title>{title}</Title>
       <Date>
         {startDate} - {endDate}
@@ -95,6 +110,7 @@ const Poster = styled.img`
   height: 14.25rem;
   border-radius: 0.3125rem;
   margin-bottom: 1.0625rem;
+  cursor: pointer;
 `;
 const Title = styled.p`
   font-family: 'Pretendard';

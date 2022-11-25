@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as ArrowIcon } from '../../assets/logos/icon_화살표.svg';
 import { ReactComponent as ExhibitIcon } from '../../assets/logos/icon_이번주공연전시.svg';
@@ -20,7 +21,7 @@ function SubSlider({ media, exhibit, notice, ticket, title, moreInfo, data }) {
       ></SubHeader>
       <StyledSubSliderCards>
         {data.length
-          ? data.map(({ posterImage, title, tag, endDate, startDate, locationDetail }) => {
+          ? data.map(({ posterImage, title, tag, endDate, startDate, locationDetail, id }) => {
               return (
                 <SubSliderCard
                   posterImage={posterImage}
@@ -30,6 +31,7 @@ function SubSlider({ media, exhibit, notice, ticket, title, moreInfo, data }) {
                   startDate={startDate}
                   endDate={endDate}
                   key={title}
+                  id={id}
                 ></SubSliderCard>
               );
             })
@@ -39,6 +41,14 @@ function SubSlider({ media, exhibit, notice, ticket, title, moreInfo, data }) {
   );
 }
 const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
+  const navigate = useNavigate();
+  const toSchedule = () => {
+    if (ticket || exhibit) {
+      navigate('/schedule', {
+        state: { id: 0 },
+      });
+    }
+  };
   return (
     <StyledSubHeader>
       {media && <MediaIcon></MediaIcon>}
@@ -47,7 +57,11 @@ const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
       {ticket && <TicketIcon></TicketIcon>}
       <StyledSlideInfo>
         <StyledSlideName>{title}</StyledSlideName>
-        <StyledMoreInfo>
+        <StyledMoreInfo
+          onClick={() => {
+            toSchedule();
+          }}
+        >
           <StyledMoreInfoContent>{moreInfo ? moreInfo : '더보기'}</StyledMoreInfoContent>
           <ArrowIcon />
         </StyledMoreInfo>
@@ -55,10 +69,22 @@ const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
     </StyledSubHeader>
   );
 };
-const SubSliderCard = ({ posterImage, tag, title, endDate, startDate, locationDetail }) => {
+const SubSliderCard = ({ posterImage, tag, title, endDate, startDate, locationDetail, id }) => {
+  const navigate = useNavigate();
+  const toDetailPg = (id) =>
+    navigate(`/detail/${id}`, {
+      state: {
+        id: id,
+      },
+    });
   return (
     <StyledSubSliderCard>
-      <StyledImg src={posterImage}>
+      <StyledImg
+        src={posterImage}
+        onClick={() => {
+          toDetailPg(id);
+        }}
+      >
         <StyledType>
           <StyledText>{tag}</StyledText>
         </StyledType>
@@ -135,6 +161,7 @@ const StyledMoreInfo = styled.div`
   flex: none;
   order: 1;
   flex-grow: 0;
+  cursor: pointer;
 `;
 const StyledMoreInfoContent = styled.div`
   width: 5.375rem;
@@ -181,6 +208,7 @@ const StyledImg = styled.div`
   height: 11.9375rem;
   border-radius: 0.3125rem;
   position: relative;
+  cursor: pointer;
 `;
 const StyledType = styled.div`
   position: absolute;

@@ -32,8 +32,8 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 335px;
-  margin-top: 20px;
+  width: 20.9375rem;
+  margin-top: 1.25rem;
 `;
 
 const StyledWrap = styled.div`
@@ -44,7 +44,7 @@ const StyledWrap = styled.div`
 `;
 
 const StyledFont = styled.div`
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
-  line-height: 17.22px;
+  line-height: 1.0762rem;
 `;

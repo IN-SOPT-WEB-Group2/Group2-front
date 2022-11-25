@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import CategoryNav from './CategoryNav';
@@ -9,7 +10,9 @@ import Reserve from './Reserve';
 import { useGetDetailContentInfo } from '../../api/detailContent.js';
 
 export default function DetailContent() {
-  const data = useGetDetailContentInfo(1)[1][0];
+  const location = useLocation();
+  console.log(location);
+  const data = useGetDetailContentInfo(location.state.id)[1][0];
   console.log(data);
 
   return (

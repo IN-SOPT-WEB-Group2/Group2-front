@@ -8,4 +8,5 @@ export default function Line({ width, margin }) {
 const StyledLine = styled.hr`
   width: ${({ width }) => width}px;
   margin: ${({ margin }) => margin};
+  border-color: ${({ theme }) => theme.colors.gray3};
 `;

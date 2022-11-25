@@ -15,14 +15,14 @@ export default function MenuList({ menuTitle, menuItems }) {
 }
 
 const MenuTitle = styled.ul`
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
 `;
 
 const MenuItem = styled.li`
-  font-size: 15px;
-  margin-top: 20px;
+  font-size: 0.9375rem;
+  margin-top: 1.25rem;
   font-weight: 400;
-  color: #232323;
+  color: ${({ theme }) => theme.colors.black_secondary};
   cursor: pointer;
 `;

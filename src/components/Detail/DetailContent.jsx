@@ -6,19 +6,24 @@ import PerformanceInfo from './PerformanceInfo';
 import PerformanceDetail from './PerformanceDetail';
 import Reserve from './Reserve';
 
-import Poster from '../../assets/logos/image poster.svg';
+import { useGetDetailContentInfo } from '../../api/detailContent.js';
 
 export default function DetailContent() {
+  const data = useGetDetailContentInfo(1)[1][0];
+  console.log(data);
+
   return (
-    <StyledContainer>
-      <StyledImage src={Poster} alt="포스터" />
-      <StyledWrap>
-        <PerformanceInfo />
-        <CategoryNav />
-        <PerformanceDetail />
-      </StyledWrap>
-      <Reserve />
-    </StyledContainer>
+    data && (
+      <StyledContainer>
+        <StyledImage src={data['posterImage']} alt="포스터" />
+        <StyledWrap>
+          <PerformanceInfo data={data} />
+          <CategoryNav />
+          <PerformanceDetail data={data} />
+        </StyledWrap>
+        <Reserve />
+      </StyledContainer>
+    )
   );
 }
 
@@ -26,22 +31,22 @@ const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #41414d;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 const StyledImage = styled.img`
   position: absolute;
-  width: 160px;
-  height: 219px;
-  margin-top: 9px;
-  border-radius: 5px;
+  width: 10rem;
+  height: 13.6875rem;
+  margin-top: 0.5625rem;
+  border-radius: 0.3125rem;
   z-index: 9;
 `;
 
 const StyledWrap = styled.div`
-  margin-top: 200px;
-  padding: 0 0 30px 0;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 15);
-  border-radius: 15px 15px 0 0;
+  margin-top: 12.5rem;
+  padding: 0 0 1.875rem 0;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: 0rem 0rem 1.875rem rgba(0, 0, 0, 15);
+  border-radius: 0.9375rem 0.9375rem 0 0;
 `;

@@ -11,9 +11,7 @@ import { useGetDetailContentInfo } from '../../api/detailContent.js';
 
 export default function DetailContent() {
   const location = useLocation();
-  console.log(location);
   const data = useGetDetailContentInfo(location.state.id)[1][0];
-  console.log(data);
 
   return (
     data && (
@@ -35,6 +33,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${({ theme }) => theme.colors.background};
+  margin : 0 -18px;
 `;
 
 const StyledImage = styled.img`

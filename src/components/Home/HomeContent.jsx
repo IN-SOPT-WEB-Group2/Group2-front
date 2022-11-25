@@ -33,7 +33,7 @@ export default function HomeContent() {
 }
 const StyledInfosContainer = styled.section`
   height: 95.5625rem;
-  background: ${({ theme }) => theme.colors.gray5};
+  background: ${({ theme }) => theme.colors.gray6};
   padding-top: 2.5625rem;
   display: flex;
   flex-direction: column;

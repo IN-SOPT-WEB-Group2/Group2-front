@@ -7,7 +7,7 @@ const colors = {
   gray2: '#949494',
   gray3: '#E2E2E2',
   gray4: '#F2F2F2',
-  gray5: '#373741',
+  gray6: '#373741',
   calendar_blue: '#5873FF',
   calendar_purple: '#B658FF',
   calendar_gray: '#ACB8E2',

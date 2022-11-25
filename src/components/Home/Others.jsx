@@ -33,7 +33,7 @@ const StyledOthersWrapper = styled.section`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: #41414d;
+  background: ${({ theme }) => theme.colors.background};
   height: 10.6875rem;
 `;
 const StyledOthersContainer = styled.article`
@@ -62,7 +62,7 @@ const StyledOtherName = styled.div`
   font-size: 0.8125rem;
   line-height: 135%;
   text-align: center;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
   flex: none;
   order: 1;
   flex-grow: 0;

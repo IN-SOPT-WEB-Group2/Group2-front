@@ -75,7 +75,7 @@ const StyledMediaNav = styled.nav`
   .selected {
     height: 1.25rem;
     font-weight: 600;
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 const StyledMediaBtn = styled.button`
@@ -88,7 +88,7 @@ const StyledMediaBtn = styled.button`
   display: flex;
   align-items: center;
   text-align: center;
-  color: #62626a;
+  color: ${({ theme }) => theme.colors.gray1};
   flex: none;
   flex-grow: 0;
   justify-content: center;
@@ -97,7 +97,7 @@ const StyledMediaBtn = styled.button`
 const StyledLine = styled.div`
   width: 20.875rem;
   height: 0.0437rem;
-  background-color: #62626a;
+  background-color: ${({ theme }) => theme.colors.gray1};
   position: relative;
 `;
 const StyledFocus = styled.div`
@@ -105,7 +105,7 @@ const StyledFocus = styled.div`
   width: 6.8544rem;
   height: 0.125rem;
   left: ${(props) => `${props.selectedIndex * 113}px`};
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.white};
   top: -0.0625rem;
 `;
 const StyledMedia = styled.article`
@@ -141,7 +141,7 @@ const StyledMediaTitle = styled.div`
   font-weight: 600;
   font-size: 0.9375rem;
   line-height: 135%;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
   margin: 0;
 `;
 const StyledMediaDate = styled.div`
@@ -155,5 +155,5 @@ const StyledMediaDate = styled.div`
   display: flex;
   align-items: center;
   text-align: right;
-  color: #62626a;
+  color: ${({ theme }) => theme.colors.gray1};
 `;

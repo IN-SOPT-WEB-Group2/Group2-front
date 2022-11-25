@@ -36,7 +36,7 @@ const StyledPlaces = styled.article`
   justify-content: center;
   align-items: center;
   height: 11.75rem;
-  background-color: #41414d;
+  background-color: ${({ theme }) => theme.colors.background};
   padding: 1.75rem 0;
   gap: 1.375rem;
 `;
@@ -55,7 +55,7 @@ const StyledTitle = styled.div`
   font-size: 1.0625rem;
   line-height: 1.25rem;
   text-align: center;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
 `;
 const PlaceItem = styled.div`
   display: flex;
@@ -71,5 +71,5 @@ const StyledFont = styled.span`
   font-size: 0.8125rem;
   line-height: 135%;
   text-align: center;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;

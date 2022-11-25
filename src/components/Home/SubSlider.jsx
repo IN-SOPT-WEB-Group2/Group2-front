@@ -7,7 +7,7 @@ import { ReactComponent as NoticeIcon } from '../../assets/logos/icon_공지사�
 import { ReactComponent as MediaIcon } from '../../assets/logos/icon_미디어.svg';
 import { ReactComponent as LocationIcon } from '../../assets/logos/icon_위치_W.svg';
 import { ReactComponent as CalenderIcon } from '../../assets/logos/icon_캘린더_W.svg';
-function SubSlider({ media, exhibit, notice, ticket, title, moreInfo }) {
+function SubSlider({ media, exhibit, notice, ticket, title, moreInfo, data }) {
   return (
     <StyledSubSlider>
       <SubHeader
@@ -19,14 +19,21 @@ function SubSlider({ media, exhibit, notice, ticket, title, moreInfo }) {
         moreInfo={moreInfo}
       ></SubHeader>
       <StyledSubSliderCards>
-        {/* 예시 */}
-        <SubSliderCard
-          src={'/posters/4.드림어빌리티_포스터.jpg'}
-          tag="전시"
-          title={'뮤지컬 브로드웨이 콘서트입니다'}
-          endDate={'2022.03.10'}
-          startDate={'2022.02.15'}
-        ></SubSliderCard>
+        {data.length
+          ? data.map(({ posterImage, title, tag, endDate, startDate, locationDetail }) => {
+              return (
+                <SubSliderCard
+                  posterImage={posterImage}
+                  locationDetail={locationDetail}
+                  title={title}
+                  tag={tag}
+                  startDate={startDate}
+                  endDate={endDate}
+                  key={title}
+                ></SubSliderCard>
+              );
+            })
+          : null}
       </StyledSubSliderCards>
     </StyledSubSlider>
   );
@@ -48,10 +55,10 @@ const SubHeader = ({ media, exhibit, notice, ticket, title, moreInfo }) => {
     </StyledSubHeader>
   );
 };
-const SubSliderCard = ({ src, tag, title, endDate, startDate, locationDetail }) => {
+const SubSliderCard = ({ posterImage, tag, title, endDate, startDate, locationDetail }) => {
   return (
     <StyledSubSliderCard>
-      <StyledImg src={src}>
+      <StyledImg src={posterImage}>
         <StyledType>
           <StyledText>{tag}</StyledText>
         </StyledType>
@@ -112,7 +119,7 @@ const StyledSlideName = styled.p`
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.25rem;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   text-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
   flex: none;
   order: 0;
@@ -137,7 +144,7 @@ const StyledMoreInfoContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: right;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -181,17 +188,16 @@ const StyledType = styled.div`
   height: 1.6875rem;
   left: 5.375rem;
   top: 9.6875rem;
-  background: #41414d;
+  background: ${({ theme }) => theme.colors.background};
   padding: 0.25rem;
   text-align: center;
 `;
 const StyledText = styled.div`
-  width: 1.4375rem;
   height: 1.1875rem;
   font-weight: 500;
   font-size: 0.8125rem;
   line-height: 143.52%;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.white};
   display: inline-block;
 `;
 const StyledInfo = styled.div`
@@ -211,7 +217,7 @@ const StyledTitle = styled.p`
   line-height: 135%;
   display: flex;
   align-items: center;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;
 const StyledDateLocation = styled.div`
   width: 9.375rem;
@@ -242,7 +248,7 @@ const StyledLocationText = styled.p`
   font-weight: 300;
   font-size: 0.6875rem;
   line-height: 0.8125rem;
-  color: #e2e2e2;
+  color: ${({ theme }) => theme.colors.white_secondary};
 `;
 const StyledDateText = styled(StyledLocationText)`
   width: 7.125rem;

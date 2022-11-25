@@ -32,9 +32,8 @@ export default function HomeContent() {
   );
 }
 const StyledInfosContainer = styled.section`
-  width: 23.4375rem;
   height: 95.5625rem;
-  background: #373741;
+  background: ${({ theme }) => theme.colors.gray5};
   padding-top: 2.5625rem;
   display: flex;
   flex-direction: column;
@@ -47,7 +46,7 @@ const StyledSubSliderContainer = styled.section`
   margin-left: 1.25rem;
 `;
 const StyledChatbotWrapper = styled.div`
-  left: 18.4375rem;
+  right: 35rem;
   position: fixed;
   width: 64px;
   height: 64px;

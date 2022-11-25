@@ -1,14 +1,36 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-// import ImageSrc from '../../assets/images/exhibitionImage.png';
+import { ReactComponent as CalendarLogo } from '../../assets/logos/calendar.svg';
+import { ReactComponent as ClockLogo } from '../../assets/logos/clock.svg';
 
 export default function ExhibitionInfo({ data }) {
+  const navigate = useNavigate();
+  const handleClickExhibition = () => {
+    navigate(`/detail/${data.id}`, {
+      state: {
+        id: data.id,
+      },
+    });
+  };
   return (
-    <Container>
+    <Container onClick={handleClickExhibition}>
       <Image src={data.posterImage} />
       <InfoContainer>
         <InfoTitle>{data.title}</InfoTitle>
+        <InfoDate>
+          <CalendarLogo />
+          <InfoDateText>
+            {data.startDate} - {data.endDate}
+          </InfoDateText>
+        </InfoDate>
+        <InfoDate>
+          <ClockLogo />
+          <InfoDateText>
+            {data.startDate} - {data.endDate}
+          </InfoDateText>
+        </InfoDate>
       </InfoContainer>
     </Container>
   );
@@ -19,6 +41,7 @@ const Container = styled.article`
   border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.gray3};
   display: flex;
   gap: 0.875rem;
+  cursor: pointer;
 `;
 
 const Image = styled.img`
@@ -34,4 +57,17 @@ const InfoTitle = styled.h3`
   font-size: 0.9375rem;
   line-height: 135%;
   color: ${({ theme }) => theme.colors.black};
+`;
+
+const InfoDate = styled.p`
+  height: 1.375rem;
+  margin: 0.5rem 0;
+`;
+
+const InfoDateText = styled.span`
+  font-size: 0.9375rem;
+  line-height: 1.0625rem;
+  color: ${({ theme }) => theme.colors.gray3};
+  vertical-align: 0.25rem;
+  padding-left: 0.5rem;
 `;

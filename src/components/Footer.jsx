@@ -1,11 +1,11 @@
 import React from 'react';
 import { ReactComponent as MainIconGray } from '../assets/logos/image_logo_gray.svg';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export default function Footer() {
+export default function Footer({ main }) {
   const footerList = ['사이트 맵', '오시는 길', '주차 안내', '정보 공개', '개인정보 처리방침'];
   return (
-    <MainFooter>
+    <MainFooter main={main}>
       <FooterNav>
         <FooterList>
           {footerList.map((item) => {
@@ -43,6 +43,12 @@ const MainFooter = styled.footer`
     font-size: 0.625rem;
     line-height: 143.52%;
   }
+  ${(props) =>
+    !props.main &&
+    css`
+      width: calc(100% + 36px);
+      margin-left: -18px;
+    `}
 `;
 const FooterNav = styled.nav`
   display: flex;
